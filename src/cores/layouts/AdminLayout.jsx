@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import "@esri/calcite-components/dist/components/calcite-navigation";
@@ -53,13 +53,13 @@ export const AdminLayout = () => {
   return (
     <CalciteShell>
       <CalciteNavigation slot="header">
-       <CalciteNavigationLogo 
-            slot="logo" 
-            heading="NioGEMS" 
-            thumbnail={AppResource.logo}
-            className="public-logo"
-            href="/"
-        />
+        <CalciteNavigationLogo 
+              slot="logo" 
+              heading="NioGEMS" 
+              thumbnail={AppResource.logo}
+              className="public-logo"
+              href="/"
+          />
         <CalciteMenu slot="content-start">
           <CalciteDropdown overlayPositioning="fixed">
             <CalciteMenuItem

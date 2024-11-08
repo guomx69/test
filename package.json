@@ -15,11 +15,10 @@
   },
   "dependencies": {
     "@arcgis/core": "^4.30.9",
-    "@esri/react-arcgis": "^5.2.0",
     "@arcgis/map-components-react": "^4.30.7",
-    
     "@esri/calcite-components-react": "^2.13.2",
-   
+    "@esri/react-arcgis": "^5.2.0",
+    "axios": "^1.7.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0",
