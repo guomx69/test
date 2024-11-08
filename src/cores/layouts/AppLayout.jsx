@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 
@@ -9,6 +9,7 @@ import "@esri/calcite-components/dist/components/calcite-menu-item";
 import "@esri/calcite-components/dist/components/calcite-dropdown";
 import "@esri/calcite-components/dist/components/calcite-dropdown-group";
 import "@esri/calcite-components/dist/components/calcite-dropdown-item";
+import "@esri/calcite-components/dist/components/calcite-navigation-logo";
 
 import { 
   CalciteShell,
@@ -17,13 +18,14 @@ import {
   CalciteMenuItem,
   CalciteDropdown,
   CalciteDropdownGroup,
-  CalciteDropdownItem
+  CalciteDropdownItem,
+  CalciteNavigationLogo
 } from '@esri/calcite-components-react';
 
 import AppTaskBars from "../../apps/components/AppTaskBars";
 import ConfirmLogout from '../../libs/components/ConfirmLogout';
 import CommonTasksBar from '../../libs/components/CommonTasksBar';
-
+import { AppResource } from '../config/config';
 import './appLayout.css';
 
 export const AppLayout = () => {
@@ -52,6 +54,13 @@ export const AppLayout = () => {
   return (
     <CalciteShell>
       <CalciteNavigation slot="header">
+      <CalciteNavigationLogo 
+          slot="logo" 
+          heading="NioGEMS" 
+          thumbnail={AppResource.logo}
+          className="public-logo"
+          href="/"
+        />
         <CalciteMenu slot="content-start">
           <CalciteDropdown overlayPositioning="fixed">
             <CalciteMenuItem

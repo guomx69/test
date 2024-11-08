@@ -12,16 +12,19 @@ import "@esri/calcite-components/dist/components/calcite-dropdown-item";
 import { 
   CalciteShell,
   CalciteNavigation,
+  CalciteNavigationLogo,
   CalciteMenu,
   CalciteMenuItem,
   CalciteDropdown,
   CalciteDropdownGroup,
   CalciteDropdownItem
-} from "@esri/calcite-components-react";
+} from '@esri/calcite-components-react';
 
 import ConfirmLogout from '../../libs/components/ConfirmLogout';
 import AdminTaskBars from "../../apps/admin/components/AdminTaskBars";
 import CommonTasksBar from '../../libs/components/CommonTasksBar';
+
+import { AppResource } from '../config/config';
 import './adminLayout.css';
 
 export const AdminLayout = () => {
@@ -50,11 +53,18 @@ export const AdminLayout = () => {
   return (
     <CalciteShell>
       <CalciteNavigation slot="header">
+       <CalciteNavigationLogo 
+            slot="logo" 
+            heading="NioGEMS" 
+            thumbnail={AppResource.logo}
+            className="public-logo"
+            href="/"
+        />
         <CalciteMenu slot="content-start">
           <CalciteDropdown overlayPositioning="fixed">
             <CalciteMenuItem
               slot="trigger"
-              text="User Management"
+              text="User"
               iconStart="user"
               textEnabled
               active={selectedMenuItem === 'users' ? true : undefined}
@@ -85,7 +95,7 @@ export const AdminLayout = () => {
           <CalciteDropdown overlayPositioning="fixed">
             <CalciteMenuItem
               slot="trigger"
-              text="Data Management"
+              text="Data"
               iconStart="data-check"
               textEnabled
               active={selectedMenuItem === 'data' ? true : undefined}
