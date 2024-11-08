@@ -1,0 +1,36 @@
+calcite-dropdown {
+  --calcite-dropdown-width: 225px !important;
+}
+
+calcite-menu-item[slot="trigger"] {
+  width: 225px !important;
+}
+
+calcite-dropdown-item {
+  width: 225px !important;
+}
+
+calcite-menu {
+  --calcite-menu-min-width: 225px;
+}
+
+/* Ensure dropdown items are properly aligned */
+calcite-dropdown-group {
+  width: 100%;
+}
+
+/* Add hover effect for dropdown items */
+calcite-dropdown-item:hover {
+  background-color: var(--calcite-ui-foreground-2);
+}
+
+/* Ensure consistent padding */
+calcite-menu-item[slot="trigger"],
+calcite-dropdown-item {
+  padding: 0.5rem 1rem;
+}
+
+/* Ensure icons are aligned */
+calcite-dropdown-item calcite-icon {
+  margin-right: 0.5rem;
+} 

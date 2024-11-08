@@ -1,0 +1,82 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--calcite-ui-foreground-1);
+}
+
+.login-card {
+  width: 60%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: var(--calcite-ui-foreground-2);
+  box-shadow: var(--calcite-shadow-2);
+}
+
+.login-title {
+  text-align: center;
+  color: var(--calcite-ui-text-1);
+  margin-bottom: 3rem;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.login-form calcite-label {
+  font-weight: 500;
+  color: var(--calcite-ui-text-2);
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 2.25rem;
+  cursor: pointer;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem;
+}
+
+.password-toggle calcite-icon {
+  color: var(--calcite-ui-text-3);
+}
+
+.login-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.login-button {
+  width: 75% !important;
+  --calcite-ui-brand: #007ac2;
+  --calcite-ui-brand-hover: #00619b;
+}
+
+.login-form calcite-input {
+  --calcite-ui-border-input: var(--calcite-ui-border-2);
+  --calcite-ui-border-input-focus: var(--calcite-ui-brand);
+}
+
+.login-form calcite-input::part(input) {
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+} 

@@ -1,0 +1,139 @@
+.confirm-logout-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.confirm-logout-container {
+  max-width: 400px;
+  width: 90%;
+  background-color: var(--calcite-ui-foreground-1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.2s ease-out;
+}
+
+.confirm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--calcite-ui-border-3);
+  background-color: var(--calcite-ui-foreground-1);
+  border-radius: 8px 8px 0 0;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-icon {
+  color: var(--calcite-ui-brand);
+}
+
+.confirm-header span {
+  color: var(--calcite-ui-text-1);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--calcite-ui-text-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  background-color: var(--calcite-ui-foreground-2);
+  color: var(--calcite-ui-text-1);
+}
+
+.confirm-content {
+  padding: 1.5rem 1.25rem;
+  color: var(--calcite-ui-text-1);
+}
+
+.confirm-content p {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.content-description {
+  color: var(--calcite-ui-text-2);
+  font-size: 0.9rem;
+}
+
+.confirm-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1.25rem;
+  gap: 0.75rem;
+  border-top: 1px solid var(--calcite-ui-border-3);
+  background-color: var(--calcite-ui-foreground-1);
+  border-radius: 0 0 8px 8px;
+}
+
+.confirm-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.confirm-button.outline {
+  background-color: var(--calcite-ui-foreground-1);
+  color: var(--calcite-ui-text-1);
+  border: 1px solid var(--calcite-ui-border-1);
+}
+
+.confirm-button.outline:hover {
+  background-color: var(--calcite-ui-foreground-2);
+}
+
+.confirm-button.danger {
+  background-color: var(--calcite-ui-danger);
+  color: white;
+  border: none;
+}
+
+.confirm-button.danger:hover {
+  background-color: var(--calcite-ui-danger-hover);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

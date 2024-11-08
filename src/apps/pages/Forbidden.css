@@ -1,0 +1,45 @@
+/* .forbidden-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: var(--calcite-ui-background);
+    padding: var(--calcite-spacing-lg);
+  }
+  
+  .forbidden-content {
+    text-align: center;
+    background-color: var(--calcite-ui-foreground-1);
+    padding: var(--calcite-spacing-xl);
+    border-radius: var(--calcite-border-radius);
+    box-shadow: var(--calcite-shadow-2);
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .action-container {
+    margin-top: var(--calcite-spacing-lg);
+  } */
+  
+  .home-link {
+    text-decoration: none;
+    width: 100%;
+    display: block;
+  }
+  
+  /* .icon-container {
+    margin-top: var(--calcite-spacing-lg);
+    color: var(--calcite-ui-text-3);
+  }
+  
+  /* Make sure alerts are properly spaced */
+  /* calcite-alert {
+    margin-bottom: var(--calcite-spacing-md);
+  } */
+  
+  /* Responsive adjustments */
+  /* @media (max-width: 480px) {
+    .forbidden-content {
+      padding: var(--calcite-spacing-md);
+    }
+  }  */
