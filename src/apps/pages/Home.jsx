@@ -30,7 +30,7 @@ import {
 } from "@arcgis/map-components-react";
 
 import { MapServices, FeatureServices,AppStatus } from '../../cores/config/config';
-import { addMapServices, addFeatureService } from '../../libs/utilities/MapUtility';
+import { addMapServices, addFeatureService } from '../../libs/utils/mapServices';
 
 //import '@arcgis/core/assets/esri/themes/light/main.css' //local version
 import './home.css'; //disable cloud version  

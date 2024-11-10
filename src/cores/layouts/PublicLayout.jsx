@@ -59,14 +59,7 @@ export const PublicLayout = () => {
               active={selectedMenuItem === 'home'?true:undefined}
             />
           </Link>
-          <Link to="/about" onClick={() => handleMenuItemClick('about')}>
-            <CalciteMenuItem
-              text="About"
-              iconStart="information"
-              textEnabled
-              active={selectedMenuItem === 'about'?true:undefined}
-            />
-          </Link>
+          
           {!isAuth ? (
             <Link to="/login" onClick={() => handleMenuItemClick('login')}>
               <CalciteMenuItem
@@ -84,22 +77,30 @@ export const PublicLayout = () => {
               onClick={handleLogout}
             />
           )}
-           <Link to="/app">
+          {isAuth ? (<><Link to="/app">
+                      <CalciteMenuItem
+                        text="Application"
+                        iconStart="apps"
+                        textEnabled
+                      />
+                     </Link>
+                     <Link to="/admin" >
+                      <CalciteMenuItem
+                        text="Admin"
+                        iconStart="drone-quadcopter"
+                        textEnabled
+                      />
+                     </Link>
+                    </>):(<></>)  
+          }
+          <Link to="/about" onClick={() => handleMenuItemClick('about')}>
             <CalciteMenuItem
-              text="Application"
-              iconStart="apps"
+              text="About"
+              iconStart="information"
               textEnabled
-  
+              active={selectedMenuItem === 'about'?true:undefined}
             />
-          </Link>
-          <Link to="/admin" >
-            <CalciteMenuItem
-              text="Admin"
-              iconStart="drone-quadcopter"
-              textEnabled
-            />
-          </Link>
-          
+           </Link>
          
         </CalciteMenu>
       </CalciteNavigation>

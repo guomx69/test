@@ -3,7 +3,12 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
 import { AuthProvider } from './cores/contexts/AuthContext.jsx'
-import { ErrorBoundary } from './libs/components/ErrorBoundary.jsx'
+import { ToastErrorBoundary } from './libs/utils/ToastErrorBoundary.jsx'
+
+//import  ErrorBoundary  from './libs/utils/ErrorBoundary.jsx'
+// import { AlertExamples } from './test/AlertExamples.jsx'
+// import { AppTest } from './test/test.jsx'
+//import { AppTest } from './test/testErrorBoundaryWithRoast.jsx'
 
 import App from './App.jsx'
 
@@ -14,7 +19,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <ErrorBoundary> <App /> </ErrorBoundary>
+        <ToastErrorBoundary><App /></ToastErrorBoundary>
        
         <ToastContainer
         position="top-right"
@@ -30,5 +35,6 @@ createRoot(document.getElementById('root')).render(
 
       </AuthProvider>
     </BrowserRouter>
-  </StrictMode>,
+    {/* <AppTest /> */}
+    </StrictMode>
 )

@@ -9,7 +9,7 @@ import "@esri/calcite-components/dist/components/calcite-list-item";
 import "@esri/calcite-components/dist/components/calcite-list";
 import { CalciteButton,CalciteList,CalciteListItem, CalciteIcon, CalciteSlider } from "@esri/calcite-components-react";
 
-import { apiUser } from '../../../libs/utilities/ApiUtility';
+import { apiUser } from '../../../libs/utils/apiCalls';
 function UserManagement() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -1,6 +1,6 @@
 export const AppRoles = {admin:"ADMIN", editor:"editor", visitor:"visitor"};
 
-export const AppStatus = {isTesting:true,zoom:5,center:[-91,40]};
+export const AppStatus = {isTesting:true,zoom:4,center:[-98,34]};
 
 export const AppResource = {
   calciteCDN: "https://js.arcgis.com/calcite-components/2.13.2/assets",
