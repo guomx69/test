@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+// Configure ArcGIS API
+
+
 import "@esri/calcite-components/dist/components/calcite-shell";
 import "@esri/calcite-components/dist/components/calcite-shell-panel";
 import "@esri/calcite-components/dist/components/calcite-action";

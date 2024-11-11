@@ -7,10 +7,8 @@ import react from '@vitejs/plugin-react-swc'
 export default defineConfig({
   plugins: [react()],
   server: {
-    https: {
-      key: "./localhost-key.pem", // current directory to your private key
-      cert:"./localhost.pem",     // current directory to your certificate
-    },
-    host: 'localhost', // Optional: specify the hos
+    host: 'localhost', // Optional: specify the host
+    port: 3000,        // Optional: specify the port
+    https: false
   },
 })
