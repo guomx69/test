@@ -1,33 +1,36 @@
-calcite-dropdown {
-  --calcite-dropdown-width: 140px !important;
+.app-navigation calcite-dropdown {
+  --calcite-dropdown-width: auto;
+  min-width: 180px; 
 }
 
-calcite-menu-item[slot="trigger"] {
-  width: 140px !important;
+.app-navigation calcite-menu-item[slot="trigger"] {
+  width: auto;
+  min-width: 175px;
 }
 
-calcite-dropdown-item {
-  width: 140px !important;
+.app-navigation calcite-dropdown-item {
+  width: auto;
+  min-width: 170px;
 }
 
-calcite-menu {
-  --calcite-menu-min-width: 140px;
+.app-navigation calcite-menu {
+  --calcite-menu-min-width: auto;
 }
 
 
 /* Style dropdown items */
-calcite-dropdown-item:hover {
+.app-navigation calcite-dropdown-item:hover {
   background-color: var(--calcite-ui-foreground-2) !important;
 }
 
 /* Ensure consistent padding */
-calcite-menu-item[slot="trigger"],
-calcite-dropdown-item {
+.app-navigation calcite-menu-item[slot="trigger"],
+.app-navigation calcite-dropdown-item {
   padding: 0.5rem 1rem;
 }
 
 /* Ensure icons are aligned */
-calcite-dropdown-item calcite-icon {
+.app-navigation calcite-dropdown-item calcite-icon {
   margin-right: 0.5rem;
 }
 

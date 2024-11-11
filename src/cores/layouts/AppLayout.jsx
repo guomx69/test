@@ -53,7 +53,7 @@ export const AppLayout = () => {
 
   return (
     <CalciteShell>
-      <CalciteNavigation slot="header">
+      <CalciteNavigation className="app-navigation" slot="header">
       <CalciteNavigationLogo 
           slot="logo" 
           heading="NioGEMS" 
@@ -61,7 +61,7 @@ export const AppLayout = () => {
           className="public-logo"
           href="/"
         />
-        <CalciteMenu slot="content-start">
+        <CalciteMenu slot="content-end">
           <CalciteDropdown overlayPositioning="fixed">
             <CalciteMenuItem
               slot="trigger"

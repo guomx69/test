@@ -4,8 +4,10 @@ import { useState } from "react";
 import "@esri/calcite-components/dist/components/calcite-navigation";
 
 import "@esri/calcite-components/dist/components/calcite-menu";
+//import "@esri/calcite-components/dist/components/calcite-button";
 import "@esri/calcite-components/dist/components/calcite-menu-item";
 import "@esri/calcite-components/dist/components/calcite-dropdown";
+
 import "@esri/calcite-components/dist/components/calcite-dropdown-group";
 import "@esri/calcite-components/dist/components/calcite-dropdown-item";
 
@@ -14,6 +16,7 @@ import {
   CalciteNavigation,
   CalciteNavigationLogo,
   CalciteMenu,
+  //CalciteButton,
   CalciteMenuItem,
   CalciteDropdown,
   CalciteDropdownGroup,
@@ -52,7 +55,7 @@ export const AdminLayout = () => {
 
   return (
     <CalciteShell>
-      <CalciteNavigation slot="header">
+      <CalciteNavigation className="admin-navigation" slot="header">
         <CalciteNavigationLogo 
               slot="logo" 
               heading="NioGEMS" 
@@ -60,9 +63,9 @@ export const AdminLayout = () => {
               className="public-logo"
               href="/"
           />
-        <CalciteMenu slot="content-start">
-          <CalciteDropdown overlayPositioning="fixed">
-            <CalciteMenuItem
+        <CalciteMenu slot="content-end" >
+          <CalciteDropdown>
+            <CalciteMenuItem 
               slot="trigger"
               text="User"
               iconStart="user"
@@ -92,7 +95,7 @@ export const AdminLayout = () => {
             </CalciteDropdownGroup>
           </CalciteDropdown>
 
-          <CalciteDropdown overlayPositioning="fixed">
+          <CalciteDropdown>
             <CalciteMenuItem
               slot="trigger"
               text="Data"
@@ -123,7 +126,7 @@ export const AdminLayout = () => {
             </CalciteDropdownGroup>
           </CalciteDropdown>
 
-          <CalciteDropdown overlayPositioning="fixed">
+          <CalciteDropdown>
             <CalciteMenuItem
               slot="trigger"
               text="Settings"
@@ -154,7 +157,7 @@ export const AdminLayout = () => {
             </CalciteDropdownGroup>
           </CalciteDropdown>
 
-          <CalciteDropdown overlayPositioning="fixed">
+          <CalciteDropdown>
             <CalciteMenuItem
               slot="trigger"
               text="Help"

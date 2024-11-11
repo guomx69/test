@@ -43,14 +43,14 @@ export const PublicLayout = () => {
 
   return (
     <CalciteShell>
-      <CalciteNavigation slot="header" className="public-navigation">
+      <CalciteNavigation  slot="header">
         <CalciteNavigationLogo 
           slot="logo" 
           heading="Welcome to NioGEMS" 
           thumbnail={AppResource.logo}
           className="public-logo"
         />
-        <CalciteMenu slot="content-end" className="public-menu">
+        <CalciteMenu slot="content-end" >
           <Link to="/" onClick={() => handleMenuItemClick('home')}>
             <CalciteMenuItem
               text="Home"
