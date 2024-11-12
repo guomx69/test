@@ -1,7 +1,7 @@
 // Simulate some users in the system
 const MOCK_USERS = [
     { username: 'admin', password: '123', role: 'ADMIN',reservations:["Cherokee Nation","Ak-Chin Indian Community","Cayuga","Hualapai Tribe"] },
-    { username: 'ming', password: '123', role: 'USER',reservations:["Cayuga","Hualapai Tribe"]},
+    { username: 'niogems', password: '123', role: 'USER',reservations:["Cayuga","Hualapai Tribe"]},
   ];
 
   

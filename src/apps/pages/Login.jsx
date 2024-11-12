@@ -31,7 +31,7 @@ function Login() {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
-  const handleSubmit = async(e) => {
+  const handleSubmitAsync = async(e) => {
     setIsLoading(true);
     e.preventDefault();
     const isSuccess = await loginAsync(username, password);
@@ -58,10 +58,10 @@ function Login() {
       <div className="login-container">
         <CalciteCard className="login-card">
           <h2 slot="title" className="login-title">
-            Welcome to NioGEMS
+            Welcome to NIOGEMS
           </h2>
           
-          <form onSubmit={handleSubmit} className="login-form">
+          <form onSubmit={handleSubmitAsync} className="login-form">
             <CalciteLabel>
               USERNAME
               <CalciteInput

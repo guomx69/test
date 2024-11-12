@@ -17,11 +17,14 @@ import {
 } from "@esri/calcite-components-react";
 
 import ConfirmLogout from '../../libs/components/ConfirmLogout';
+import { AppRoles } from '../config/config';
 import './publicLayout.css';
 
 export const PublicLayout = () => {
-  const { isAuth } = useAuth();
+  const { isAuth, user } = useAuth();
   const navigate = useNavigate();
+
+ // console.log("user", user);
 
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [selectedMenuItem, setSelectedMenuItem] = useState('home');
@@ -43,12 +46,15 @@ export const PublicLayout = () => {
   return (
     <CalciteShell>
       <CalciteNavigation  slot="header">
+     
         <CalciteNavigationLogo 
           slot="logo" 
           heading="Welcome to NIOGEMS" 
           thumbnail={AppResource.logo}
           className="public-logo"
+          href="/"
         />
+   
         <CalciteMenu slot="content-end" >
           <Link to="/" onClick={() => handleMenuItemClick('home')}>
             <CalciteMenuItem
@@ -76,22 +82,23 @@ export const PublicLayout = () => {
               onClick={handleLogout}
             />
           )}
-          {isAuth ? (<><Link to="/app">
-                      <CalciteMenuItem
-                        text="Application"
-                        iconStart="apps"
-                        textEnabled
-                      />
-                     </Link>
-                     <Link to="/admin" >
-                      <CalciteMenuItem
-                        text="Admin"
-                        iconStart="drone-quadcopter"
-                        textEnabled
-                      />
-                     </Link>
-                    </>):(<></>)  
-          }
+          {isAuth && (<Link to="/app">
+                                <CalciteMenuItem
+                                  text="Application"
+                                  iconStart="apps"
+                                  textEnabled
+                                />
+                              </Link>)}
+          {(isAuth && user.role.toLowerCase() === AppRoles.admin.toLowerCase()) && (
+                          <Link to="/admin" >
+                            <CalciteMenuItem
+                              text="Admin"
+                              iconStart="drone-quadcopter"
+                              textEnabled
+                            />
+                          </Link>)
+            }
+      
           <Link to="/about" onClick={() => handleMenuItemClick('about')}>
             <CalciteMenuItem
               text="About"

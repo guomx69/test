@@ -1,7 +1,7 @@
 // src/routes/ProtectedRouteAdmin.jsx
 import React from 'react';
 import { Navigate,useLocation } from 'react-router-dom';
-//import LoadingSpinner from '../../libs/components/LoadingSpinner';
+
 import { useAuth } from '../contexts/AuthContext';
 
 export const ProtectedRouteAdmin = ({ children, role }) => {
@@ -15,7 +15,7 @@ export const ProtectedRouteAdmin = ({ children, role }) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  if (role && user.role !== role) {
+  if (role && user.role.toLowerCase() !== role.toLowerCase()) {
     return <Navigate to="/forbidden" state={{ from: location }} replace />; //back the original page for notlogined user
   }
 
