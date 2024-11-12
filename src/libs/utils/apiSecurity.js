@@ -9,7 +9,34 @@ const CSP_HEADER = {
   'img-src': ["'self'", 'data:', 'https:'],
   'connect-src': ["'self'", 'https://api.example.com'],
 };
-
+const customToastStyles = {
+  error: {
+    style: {
+      background: '#FEE2E2',
+      color: '#991B1B',
+      border: '1px solid #F87171',
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    },
+    progressStyle: {
+      background: '#F87171',
+    },
+  },
+  success: {
+    style: {
+      background: '#DCFCE7',
+      color: '#166534',
+      border: '1px solid #4ADE80',
+    },
+    progressStyle: {
+      background: '#4ADE80',
+    },
+  },
+};
 // Security utility functions
 const SecurityUtils = {
   // Sanitize user input
@@ -39,4 +66,4 @@ const SecurityUtils = {
     return crypto.getRandomValues(new Uint8Array(16)).join('');
   }
 };
-export { SecurityUtils,CSP_HEADER };
+export { SecurityUtils,CSP_HEADER, customToastStyles };

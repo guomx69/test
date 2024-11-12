@@ -1,4 +1,4 @@
-import { Link, Outlet, useNavigate, useLocation } from "react-router-dom";
+import { Link, Outlet, useNavigate} from "react-router-dom";
 import { useAuth } from '../contexts/AuthContext';
 import { AppResource } from '../config/config';
 import { useState } from "react";
@@ -22,7 +22,6 @@ import './publicLayout.css';
 export const PublicLayout = () => {
   const { isAuth } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [selectedMenuItem, setSelectedMenuItem] = useState('home');
@@ -46,7 +45,7 @@ export const PublicLayout = () => {
       <CalciteNavigation  slot="header">
         <CalciteNavigationLogo 
           slot="logo" 
-          heading="Welcome to NioGEMS" 
+          heading="Welcome to NIOGEMS" 
           thumbnail={AppResource.logo}
           className="public-logo"
         />

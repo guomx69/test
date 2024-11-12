@@ -1,43 +1,13 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import { SecurityUtils } from './apiSecurity';
+import { SecurityUtils, customToastStyles } from './apiSecurity';
 /**
  * Axios instance with default configuration
  * @type {import('axios').AxiosInstance}
  */
 
-console.log(process.env.NODE_ENV)
-console.log(import.meta.env.VITE_USERAPI_URL);
-console.log(process.env.NODE_ENV)
-
-const customToastStyles = {
-  error: {
-    style: {
-      background: '#FEE2E2',
-      color: '#991B1B',
-      border: '1px solid #F87171',
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    },
-    progressStyle: {
-      background: '#F87171',
-    },
-  },
-  success: {
-    style: {
-      background: '#DCFCE7',
-      color: '#166534',
-      border: '1px solid #4ADE80',
-    },
-    progressStyle: {
-      background: '#4ADE80',
-    },
-  },
-};
+//console.log(process.env.NODE_ENV)
+//console.log(import.meta.env.VITE_USERAPI_URL);
 
 /**
  * Axios instance with default configuration

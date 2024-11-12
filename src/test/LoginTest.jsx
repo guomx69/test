@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../../cores/contexts/AuthContext';
+import { useAuth } from '../cores/contexts/AuthContext';
 
 //import "@esri/calcite-components/dist/calcite/calcite.css";
 import "@esri/calcite-components/dist/components/calcite-button";
@@ -19,9 +19,9 @@ import {
   CalciteScrim
 } from '@esri/calcite-components-react';
 
-import './login.css';
+import '../apps/pages/login.css';
 
-function Login() {
+function LoginTest() {
   const { isAuth, loginAsync, isLoading, setIsLoading } = useAuth();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -115,4 +115,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginTest;

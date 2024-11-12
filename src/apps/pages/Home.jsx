@@ -32,8 +32,11 @@ import {
   ArcgisZoom
 } from "@arcgis/map-components-react";
 
-import { MapServices, FeatureServices,AppStatus } from '../../cores/config/config';
-import { addMapServices, addFeatureService } from '../../libs/utils/mapServices';
+import { AppStatus } from '../../cores/config/config';
+import { MapServices} from '../../cores/config/serviceMapList';
+import { FeatureServices} from '../../cores/config/serviceFeatureList';
+import  {VectorServices}  from '../../cores/config/serviceVectorList';
+import { addMapServices, addFeatureService, addVectorService } from '../../libs/utils/mapServices';
 
 //import '@arcgis/core/assets/esri/themes/light/main.css' //local version
 import './home.css'; //disable cloud version  
@@ -54,16 +57,11 @@ const Home = () => {
   const onArcgisViewReadyChange = (event) => {
     console.log(event,"from arcgis view ready change");
     const { map, view } = event.target;
-    let services = [
-      MapServices.regions,
-      MapServices.tribalLands,
-      MapServices.tribalCessions
-    ];
-    addMapServices(map, services);
-    services=[
-      FeatureServices.federalIndianReservations
-    ]
-    addFeatureService(map, services);
+        
+    addMapServices(map,  Object.values(MapServices));
+    
+    addFeatureService(map, Object.values(FeatureServices));
+    addVectorService(map, Object.values(VectorServices));
     // Get a reference to the arcgis-layer-list element
     // const arcgisLayerList = document.querySelector("arcgis-layer-list");
     // // Set the listItemCreatedFunction to add a legend to each list item

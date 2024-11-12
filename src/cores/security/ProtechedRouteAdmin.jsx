@@ -8,7 +8,7 @@ export const ProtectedRouteAdmin = ({ children, role }) => {
  const {user} =useAuth();
  const location = useLocation();
 
-  console.log("isAuth",user,"from ProtectedRouteAdmin");
+  //console.log("isAuth",user,"from ProtectedRouteAdmin");
 
   
   if (!user) {
