@@ -2,7 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
-import { AuthProvider } from './cores/contexts/AuthContext.jsx'
 import { ToastErrorBoundary } from './libs/utils/ToastErrorBoundary.jsx'
 
 //import  ErrorBoundary  from './libs/utils/ErrorBoundary.jsx'
@@ -17,10 +16,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <ToastErrorBoundary><App /></ToastErrorBoundary>
-       
+   
+       {/* <ToastErrorBoundary> */}
+           <BrowserRouter>
+              <App />
+           </BrowserRouter>
+       {/* </ToastErrorBoundary> */}
+            
         <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -32,9 +34,6 @@ createRoot(document.getElementById('root')).render(
         draggable
         pauseOnHover
        />
-
-      </AuthProvider>
-    </BrowserRouter>
-    {/* <AppTest /> */}
+   
     </StrictMode>
 )

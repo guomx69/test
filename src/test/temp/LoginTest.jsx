@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../cores/contexts/AuthContext';
+import { useEsriAuth} from '../cores/contexts/EsriAuthContext';
 
 //import "@esri/calcite-components/dist/calcite/calcite.css";
 import "@esri/calcite-components/dist/components/calcite-button";
@@ -22,7 +22,8 @@ import {
 import '../apps/pages/login.css';
 
 function LoginTest() {
-  const { isAuth, loginAsync, isLoading, setIsLoading } = useAuth();
+  const { isAuth, loginAsync, isLoading, setIsLoading } = useEsriAuth();
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);

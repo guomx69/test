@@ -1,4 +1,5 @@
 export const FeatureServices ={
+    
     bia_regions: {
     url:"https://biamaps.geoplatform.gov/server/rest/services/BOGS/BIA_Regions/FeatureServer/",
     title:"BIA Regions",

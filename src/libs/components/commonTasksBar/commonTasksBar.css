@@ -1,0 +1,24 @@
+.common-tasks-bar calcite-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.common-tasks-bar calcite-menu-item {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.common-tasks-bar calcite-menu-item:hover {
+  background-color: var(--calcite-ui-foreground-2);
+}
+
+@media (max-width: 768px) {
+  .common-tasks-bar {
+    width: 100%;
+  }
+  
+  .common-tasks-bar calcite-menu {
+    justify-content: space-around;
+  }
+} 

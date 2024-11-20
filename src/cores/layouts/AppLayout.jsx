@@ -23,8 +23,8 @@ import {
 } from '@esri/calcite-components-react';
 
 import AppTaskBars from "../../apps/components/AppTaskBars";
-import ConfirmLogout from '../../libs/components/ConfirmLogout';
-import CommonTasksBar from '../../libs/components/CommonTasksBar';
+import ConfirmLogout from '../../libs/components/confirmLogout';
+import CommonTasksBar from '../../libs/components/commonTasksBar';
 import { AppResource } from '../config/config';
 import './appLayout.css';
 

@@ -11,6 +11,13 @@ export const VectorServices = [
     minScale: 0,
     maxScale: 0,
    // apiKey: "optional_api_key"
+  },
+
+  {
+    url: "https://tiles.arcgis.com/tiles/P3ePLMYs2RVChkJx/arcgis/rest/services/Microsoft_Building_Footprints/VectorTileServer/",
+    title: "Building Footprints",
+    opacity: 0.5,
+    visible: false,
   }
   // Add more vector tile services as needed
 ];

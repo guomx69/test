@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-//import basicSsl from '@vitejs/plugin-basic-ssl'
+import react from '@vitejs/plugin-react'
 
 
 // https://vite.dev/config/
@@ -12,5 +11,5 @@ export default defineConfig({
       cert:"./localhost.pem",     // current directory to your certificate
     },
     host: 'localhost', // Optional: specify the hos
-  },
+  }
 })

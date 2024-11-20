@@ -23,9 +23,9 @@ import {
   CalciteDropdownItem
 } from '@esri/calcite-components-react';
 
-import ConfirmLogout from '../../libs/components/ConfirmLogout';
+import ConfirmLogout from '../../libs/components/confirmLogout';
 import AdminTaskBars from "../../apps/admin/components/AdminTaskBars";
-import CommonTasksBar from '../../libs/components/CommonTasksBar';
+import CommonTasksBar from '../../libs/components/commonTasksBar';
 
 import { AppResource } from '../config/config';
 import './adminLayout.css';

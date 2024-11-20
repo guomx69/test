@@ -1,16 +1,18 @@
-import "@esri/calcite-components/dist/calcite/calcite.css";
-// import "@esri/calcite-components/dist/components/calcite-dialog";
-// import "@esri/calcite-components/dist/components/calcite-button";
+import React from 'react';
+import "@esri/calcite-components/dist/components/calcite-dialog";
+import "@esri/calcite-components/dist/components/calcite-button";
 import "@esri/calcite-components/dist/components/calcite-icon";
 import "@esri/calcite-components/dist/components/calcite-scrim";
 
-import React from 'react';
 import { 
+  CalciteDialog, 
+  CalciteButton,
   CalciteIcon,
   CalciteScrim 
 } from "@esri/calcite-components-react";
 
 import './confirmLogout.css';
+import { DIALOG_TEXTS } from './constants';
 
 const ConfirmLogout = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
@@ -27,7 +29,7 @@ const ConfirmLogout = ({ isOpen, onClose, onConfirm }) => {
                 scale="m"
                 className="header-icon"
               />
-              <span>Confirm Logout</span>
+              <span>{DIALOG_TEXTS.HEADER}</span>
             </div>
             <button className="close-button" onClick={onClose}>
               <CalciteIcon 
@@ -37,17 +39,17 @@ const ConfirmLogout = ({ isOpen, onClose, onConfirm }) => {
             </button>
           </div>
           <div className="confirm-content">
-            <p>Are you sure you want to log out?</p>
-            <span className="content-description">You will need to sign in again to access your account.</span>
+            <p>{DIALOG_TEXTS.CONTENT}</p>
+            <span className="content-description">{DIALOG_TEXTS.DESCRIPTION}</span>
           </div>
           <div className="confirm-footer">
             <button className="confirm-button outline" onClick={onClose}>
               <CalciteIcon icon="x" scale="s" />
-              Cancel
+              {DIALOG_TEXTS.CANCEL_BUTTON}
             </button>
             <button className="confirm-button danger" onClick={onConfirm}>
               <CalciteIcon icon="sign-out" scale="s" />
-              Logout
+              {DIALOG_TEXTS.LOGOUT_BUTTON}
             </button>
           </div>
         </div>

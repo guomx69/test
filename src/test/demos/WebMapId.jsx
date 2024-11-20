@@ -1,19 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 
 // Configure ArcGIS API
 
-
-import "@esri/calcite-components/dist/components/calcite-shell";
-import "@esri/calcite-components/dist/components/calcite-shell-panel";
-import "@esri/calcite-components/dist/components/calcite-action";
-import "@esri/calcite-components/dist/components/calcite-action-bar";
-import "@esri/calcite-components/dist/components/calcite-panel";
-import {
-  CalciteShell,
-  CalciteActionBar,
-  CalciteAction,
-  CalcitePanel
-} from "@esri/calcite-components-react";
 
 import "@arcgis/map-components/dist/components/arcgis-map";
 import "@arcgis/map-components/dist/components/arcgis-basemap-gallery";
@@ -33,15 +21,11 @@ import {
 } from "@arcgis/map-components-react";
 
 import { AppStatus } from '../../cores/config/config';
-import { MapServices} from '../../cores/config/serviceMapList';
-import { FeatureServices} from '../../cores/config/serviceFeatureList';
-import  {VectorServices}  from '../../cores/config/serviceVectorList';
-import { addMapServices, addFeatureService, addVectorService } from '../../libs/utils/mapServices';
 
 //import '@arcgis/core/assets/esri/themes/light/main.css' //local version
-import './home.css'; //disable cloud version  
+import './webMapId.css'; //disable cloud version  
 
-const Home = () => {
+const WebMapId = () => {
   const onArcGISViewClick = (event) => {
     console.log(event,"from arcgis map");
   };
@@ -58,10 +42,7 @@ const Home = () => {
     console.log(event,"from arcgis view ready change");
     const { map, view } = event.target;
         
-    addMapServices(map,  Object.values(MapServices));
-    
-    addFeatureService(map, Object.values(FeatureServices));
-    addVectorService(map, Object.values(VectorServices));
+
     // Get a reference to the arcgis-layer-list element
     // const arcgisLayerList = document.querySelector("arcgis-layer-list");
     // // Set the listItemCreatedFunction to add a legend to each list item
@@ -75,8 +56,6 @@ const Home = () => {
     //   //console.log(item,"from layer list");
     // };
   };
-  
-
  
   return (
    
@@ -87,8 +66,9 @@ const Home = () => {
           center={AppStatus.center}
           onArcgisViewReadyChange={onArcgisViewReadyChange}
           onArcgisViewClick={onArcGISViewClick}
+          itemId="f135c735ac3b47799c01aab44f692875"
         >
-          <ArcgisSearch position="top-right"></ArcgisSearch>
+       
           <ArcgisZoom position="top-right">
           </ArcgisZoom>
           <ArcgisExpand  position="top-right">
@@ -107,4 +87,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default WebMapId;

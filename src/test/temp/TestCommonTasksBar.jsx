@@ -9,7 +9,7 @@ import {
   CalciteMenuItem
 } from "@esri/calcite-components-react";
 
-const CommonTasksBar = () => {
+const TestCommonTasksBar = () => {
   return (
     <CalciteNavigation slot="navigation-secondary">
       <calcite-menu slot="content-start">
@@ -60,4 +60,4 @@ const CommonTasksBar = () => {
   );
 };
 
-export default CommonTasksBar; 
+export default TestCommonTasksBar; 

@@ -16,7 +16,7 @@ import {
   CalciteMenuItem
 } from "@esri/calcite-components-react";
 
-import ConfirmLogout from '../../libs/components/ConfirmLogout';
+import ConfirmLogout from '../../libs/components/confirmLogout';
 import { AppRoles } from '../config/config';
 import './publicLayout.css';
 
@@ -105,6 +105,14 @@ export const PublicLayout = () => {
               iconStart="information"
               textEnabled
               active={selectedMenuItem === 'about'?true:undefined}
+            />
+           </Link>
+           <Link to="/testauth" onClick={() => handleMenuItemClick('test')}>
+            <CalciteMenuItem
+              text="Test"
+              iconStart="information"
+              textEnabled
+              active={selectedMenuItem === 'test'?true:undefined}
             />
            </Link>
          
