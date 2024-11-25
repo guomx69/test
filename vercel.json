@@ -1,0 +1,9 @@
+{
+    "routes": [
+      {
+        "src": "/autharcgis/(.*)",
+        "dest": "/autharcgis/$1",
+        "methods": ["GET"]
+      }
+    ]
+  }

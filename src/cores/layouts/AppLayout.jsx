@@ -92,7 +92,7 @@ export const AppLayout = () => {
   return (
     <CalciteShell>
       <CalciteNavigation className="app-navigation" slot="header">
-      <CalciteNavigationLogo 
+        <CalciteNavigationLogo 
           slot="logo" 
           heading="NioGEMS" 
           thumbnail={AppResource.logo}
@@ -100,6 +100,7 @@ export const AppLayout = () => {
           href="/"
         />
         <CalciteMenu slot="content-end">
+          <Link to="/app/file">
           <CalciteDropdown overlayPositioning="fixed">
             <CalciteMenuItem
               slot="trigger"
@@ -138,7 +139,9 @@ export const AppLayout = () => {
 
             </CalciteDropdownGroup>
           </CalciteDropdown>
+          </Link>
 
+          <Link to="/app/search">
           <CalciteDropdown overlayPositioning="fixed">
             <CalciteMenuItem
               slot="trigger"
@@ -158,32 +161,36 @@ export const AppLayout = () => {
              
             </CalciteDropdownGroup>
           </CalciteDropdown>
+          </Link>
 
-          <CalciteDropdown overlayPositioning="fixed">
-            <CalciteMenuItem
-              slot="trigger"
-              text="Data"
-              iconStart="data"
-              textEnabled
-              active={menuState[MENU_ITEMS.data]}
-              onClick={() => handleMenuItemClick(MENU_ITEMS.data)}
-            />
-            <CalciteDropdownGroup>
-              <CalciteDropdownItem
-                iconStart="refresh"
-                onClick={() => handleDropdownAction('refresh-data')}
-              >
-                Refresh Data
-              </CalciteDropdownItem>
-              <CalciteDropdownItem
-                iconStart="export"
-                onClick={() => handleDropdownAction('export-data')}
-              >
-                Export Data
-              </CalciteDropdownItem>
-            </CalciteDropdownGroup>
-          </CalciteDropdown>
+          <Link to="/app/data">
+              <CalciteDropdown overlayPositioning="fixed">
+              <CalciteMenuItem
+                slot="trigger"
+                text="Data"
+                iconStart="data"
+                textEnabled
+                active={menuState[MENU_ITEMS.data]}
+                onClick={() => handleMenuItemClick(MENU_ITEMS.data)}
+              />
+              <CalciteDropdownGroup>
+                <CalciteDropdownItem
+                  iconStart="refresh"
+                  onClick={() => handleDropdownAction('refresh-data')}
+                >
+                  Refresh Data
+                </CalciteDropdownItem>
+                <CalciteDropdownItem
+                  iconStart="export"
+                  onClick={() => handleDropdownAction('export-data')}
+                >
+                  Export Data
+                </CalciteDropdownItem>
+              </CalciteDropdownGroup>
+            </CalciteDropdown>
+          </Link>
 
+          <Link to="/app/help">
           <CalciteDropdown overlayPositioning="fixed">
             <CalciteMenuItem
               slot="trigger"
@@ -208,7 +215,7 @@ export const AppLayout = () => {
               </CalciteDropdownItem>
             </CalciteDropdownGroup>
           </CalciteDropdown>
-
+          </Link>
           <CalciteMenuItem
             text="Logout"
             iconStart="sign-out"
@@ -216,10 +223,18 @@ export const AppLayout = () => {
             onClick={handleLogout}
           />
         </CalciteMenu>
-
-        <CommonTasksBar />
-        
+        <CalciteNavigation slot="navigation-secondary">
+                <CommonTasksBar />
+        </CalciteNavigation>
+        <CalciteNavigation slot="navigation-tertiary">
+                <AppTaskBars selectedMenuItem={Object.keys(menuState).find(key => menuState[key] === true)} />
+        </CalciteNavigation>
       </CalciteNavigation>
+        
+      
+     
+
+
       {/* Left Panel - Calcite structure with React content */}
       <CalciteShellPanel 
         slot="panel-start"
@@ -265,7 +280,7 @@ export const AppLayout = () => {
       </CalciteShellPanel>
       
       <div className="container mx-auto p-4 mt-16">
-      <AppTaskBars selectedMenuItem={Object.keys(menuState).find(key => menuState[key] === true)} />
+     
      
         <Outlet />
       </div>

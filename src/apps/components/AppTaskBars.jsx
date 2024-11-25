@@ -1,44 +1,43 @@
 import React from 'react';
-import "@esri/calcite-components/dist/components/calcite-action";
-import "@esri/calcite-components/dist/components/calcite-action-bar";
-import "@esri/calcite-components/dist/components/calcite-action-group";
-import { CalciteActionBar, CalciteActionGroup, CalciteAction } from '@esri/calcite-components-react';
+import "@esri/calcite-components/dist/components/calcite-menu";
+import "@esri/calcite-components/dist/components/calcite-menu-item";
+
+
+import { CalciteMenu, CalciteMenuItem} from '@esri/calcite-components-react';
 
 const AppTaskBars = ({ selectedMenuItem }) => {
+  console.log('selectedMenuItem in AppTaskBars', selectedMenuItem);
   return (
-    <CalciteActionBar layout="horizontal" expanded>
-      <CalciteActionGroup>
+    
+       <CalciteMenu layout="horizontal"  slot="content-start" expanded>
+     
         {selectedMenuItem === 'file' && (
           <>
-            
-            <CalciteAction text="Open DataView" icon="folder-open" textEnabled />
-            <CalciteAction text="Save DataView" icon="save" textEnabled />
-            <CalciteAction text="Save DataView As" icon="save-as" textEnabled />
-            <CalciteAction text="Load Deflaut DataView" icon="add-in-new" textEnabled />
+            <CalciteMenuItem text="Open DataView" iconStart="folder-open" />
+            <CalciteMenuItem text="Save DataView" iconStart="save" />
+            <CalciteMenuItem text="Save DataView As" iconStart="save-as" />
+            <CalciteMenuItem text="Load Deflaut DataView" iconStart="add-in-new" />
           </>
         )}
         {selectedMenuItem === 'search' && (
           <>
-            <CalciteAction text="Zoom To Township or Section" icon="zoom-to-object" textEnabled />
+            <CalciteMenuItem text="Zoom To Township or Section" iconStart="zoom-to-object" />
           </>
         )}
         {selectedMenuItem === 'data' && (
           <>
-            <CalciteAction text="Refresh Data" icon="refresh" textEnabled />
-            <CalciteAction text="Export Data" icon="export" textEnabled />
+            <CalciteMenuItem text="Refresh Data" iconStart="refresh" />
+            <CalciteMenuItem text="Export Data" iconStart="export" />
           </>
         )}
         {selectedMenuItem === 'help' && (
           <>
-            <CalciteAction text="Documentation" icon="book" textEnabled />
-            <CalciteAction text="Contact Support" icon="phone" textEnabled />
+            <CalciteMenuItem text="Documentation"  iconStart="book" />
+            <CalciteMenuItem text="Contact Support"  iconStart="phone" />
           </>
         )}
-        {selectedMenuItem === 'logout' && (
-          <CalciteAction text="Confirm Logout" icon="sign-out" textEnabled />
-        )}
-      </CalciteActionGroup>
-    </CalciteActionBar>
+    
+    </CalciteMenu>
   );
 };
 
