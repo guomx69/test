@@ -4,6 +4,17 @@
         "src": "/autharcgis/(.*)",
         "dest": "/autharcgis/$1",
         "methods": ["GET"]
+      },
+      {
+        "src": "/authgmail/(.*)",
+        "dest": "/authgmail/$1",
+        "methods": ["GET"]
       }
-    ]
+    ],
+    "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
   }
