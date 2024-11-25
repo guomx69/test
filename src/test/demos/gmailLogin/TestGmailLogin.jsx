@@ -4,6 +4,9 @@ import LoginButton from './components/LoginButton';
 import UserInfo from './components/UserInfo';
 import ErrorMessage from './components/ErrorMessage';
 
+import './styles/TestGmailLogin.css';
+
+
 
 const TestGmailLogin = () => {
   const { gmailUser, gmailError, handleGoogleLogin,handleGoogleLogout } = useGmailAuth();

@@ -3,7 +3,7 @@ import React from 'react';
 
 import AppRoutes from './cores/routes/AppRoutes';
 import { AppResource } from './cores/config/config';
-import { EsriAuthProvider } from './cores/contexts/EsriAuthContext';
+//import { EsriAuthProvider } from './cores/contexts/EsriAuthContext';
 import { AuthProvider } from './cores/contexts/AuthContext';
 
 

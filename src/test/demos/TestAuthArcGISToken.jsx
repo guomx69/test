@@ -1,5 +1,6 @@
 import React from 'react';
-import { useArcGISAuth } from '../../../libs/hooks/useArcGISAuth';
+import { useArcGISAuth } from '../../libs/hooks/useArcGISAuth';
+
 
 const TestAuthArcGISToken = () => {
   const { 

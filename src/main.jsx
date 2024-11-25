@@ -2,12 +2,11 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 
-import { ToastErrorBoundary } from './libs/utils/ToastErrorBoundary.jsx'
+"use client";
 
-//import  ErrorBoundary  from './libs/utils/ErrorBoundary.jsx'
-// import { AlertExamples } from './test/AlertExamples.jsx'
-// import { AppTest } from './test/test.jsx'
-//import { AppTest } from './test/testErrorBoundaryWithRoast.jsx'
+import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorFallback, logError, resetErrorBoundary } from './libs/utils/errorFallback';
+
 
 import App from './App.jsx'
 
@@ -17,11 +16,11 @@ import 'react-toastify/dist/ReactToastify.css';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
    
-       {/* <ToastErrorBoundary> */}
+      <ErrorBoundary FallbackComponent={ErrorFallback} onError={logError} onReset={resetErrorBoundary}>    
            <BrowserRouter>
               <App />
            </BrowserRouter>
-       {/* </ToastErrorBoundary> */}
+      </ErrorBoundary>
             
         <ToastContainer
         position="top-right"

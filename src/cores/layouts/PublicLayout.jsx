@@ -1,133 +1,189 @@
-import { Link, Outlet, useNavigate} from "react-router-dom";
-import { useAuth } from '../contexts/AuthContext';
-import { AppResource } from '../config/config';
-import { useState } from "react";
+import React, { useReducer,useEffect } from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+
+import "@esri/calcite-components/dist/components/calcite-shell";
 
 import "@esri/calcite-components/dist/components/calcite-navigation";
 import "@esri/calcite-components/dist/components/calcite-navigation-logo";
-import "@esri/calcite-components/dist/components/calcite-menu";
 import "@esri/calcite-components/dist/components/calcite-menu-item";
-
+import "@esri/calcite-components/dist/components/calcite-panel";
+import "@esri/calcite-components/dist/components/calcite-menu";
 import { 
-  CalciteShell,
-  CalciteNavigation,
-  CalciteNavigationLogo,
+  CalciteShell, 
+
+  CalciteNavigation, 
+  CalciteNavigationLogo, 
   CalciteMenu,
-  CalciteMenuItem
-} from "@esri/calcite-components-react";
+  CalciteMenuItem,
+  CalcitePanel
+} from '@esri/calcite-components-react';
 
-import ConfirmLogout from '../../libs/components/confirmLogout';
-import { AppRoles } from '../config/config';
-import './publicLayout.css';
 
-export const PublicLayout = () => {
-  const { isAuth, user } = useAuth();
+import ConfirmLogout from '../../libs/components/confirmLogout/ConfirmLogout';
+import { useAuth } from '../contexts/AuthContext';
+import { AppResource, AppRoles } from '../../cores/config/config';
+
+// Action types
+const SET_SELECTED_MENU = 'SET_SELECTED_MENU';
+
+const MENU_ITEMS = {
+  home: 'home',
+  app: 'app',
+  admin: 'admin',
+  login: 'login',
+  about: 'about',
+  test: 'test'
+}
+// Initial state
+const initialState = {
+  [MENU_ITEMS.home]:undefined,
+  [MENU_ITEMS.app]:undefined,
+  [MENU_ITEMS.admin]:undefined,
+  [MENU_ITEMS.login]:undefined,
+  [MENU_ITEMS.about]:undefined,
+  [MENU_ITEMS.test]:undefined
+};
+
+// Reducer function
+const menuReducer = (state, action) => {
+  switch (action.type) {
+    case SET_SELECTED_MENU:
+      return {
+        ...initialState,
+        [action.payload]: true
+      };
+    default:
+      return state;
+  }
+};
+
+
+
+const PublicLayout = () => {
+  const [menuState, dispatch] = useReducer(menuReducer, initialState);
   const navigate = useNavigate();
+  const [ isLogoutOpen, setIsLogoutOpen] = React.useState(false);
+  const { user,setIsAuth } = useAuth();
 
- // console.log("user", user);
-
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const [selectedMenuItem, setSelectedMenuItem] = useState('home');
+  const handleMenuClick = (menuItem) => {
+    dispatch({ type: SET_SELECTED_MENU, payload: menuItem });
+  };
 
   const handleLogout = () => {
-    setShowLogoutModal(true);
+    setIsLogoutOpen(true);
   };
 
   const confirmLogout = () => {
-    setShowLogoutModal(false);
+    setIsLogoutOpen(false);
+    //setIsAuth(true);
     navigate('/logout');
   };
-
-  const handleMenuItemClick = (item) => {
-    setSelectedMenuItem(item);
-  };
   
-
+  useEffect(() => {
+    const menuItem = window.location.pathname.split('/')[1]||MENU_ITEMS.home;
+    dispatch({ type: SET_SELECTED_MENU, payload: menuItem });
+  }, []);
   return (
     <CalciteShell>
-      <CalciteNavigation  slot="header">
-     
-        <CalciteNavigationLogo 
-          slot="logo" 
-          heading="Welcome to NIOGEMS" 
-          thumbnail={AppResource.logo}
-          className="public-logo"
-          href="/"
-        />
-   
-        <CalciteMenu slot="content-end" >
-          <Link to="/" onClick={() => handleMenuItemClick('home')}>
-            <CalciteMenuItem
-              text="Home"
-              iconStart="home"
-              textEnabled
-              active={selectedMenuItem === 'home'?true:undefined}
+      
+        <CalciteNavigation slot="header">
+          <CalciteNavigationLogo 
+            slot="logo" 
+            heading="Welcome to NIOGEMS" 
+            thumbnail={AppResource.logo}
+            className="public-logo"
+            href="/"
+          />
+        
+           <CalciteMenu slot="content-end" >
+          {/* Home Menu Item */}
+          <Link to="/">
+            <CalciteMenuItem 
+              text="Home" 
+              icon="home"
+              active={menuState[MENU_ITEMS.home]}
+              onClick={() => handleMenuClick(MENU_ITEMS.home)}
             />
           </Link>
+          {/* App Menu Items - Show when authenticated */}
+          {user && (
+             <Link to={`/${MENU_ITEMS.app}`}>
+                <CalciteMenuItem 
+                  text="App" 
+                  icon="apps"
+                  active={menuState[MENU_ITEMS.app]}
+                  onClick={() => handleMenuClick(MENU_ITEMS.app)}
+                />
+              </Link>
           
-          {!isAuth ? (
-            <Link to="/login" onClick={() => handleMenuItemClick('login')}>
-              <CalciteMenuItem
-                text="Sign In"
-                iconStart="sign-in"
-                textEnabled
-                active={selectedMenuItem === 'login'?true:undefined}
+          )}
+
+          {/* Admin Menu Items - Show when authenticated and role is admin */}
+          {user && user.role === AppRoles.admin && (
+            <Link to={`/${MENU_ITEMS.admin}`}>
+              <CalciteMenuItem 
+                text="Admin" 
+                icon="gear"
+                active={menuState[MENU_ITEMS.admin]}
+                onClick={() => handleMenuClick(MENU_ITEMS.admin)}
               />
             </Link>
-          ) : (
-            <CalciteMenuItem
-              text="Sign Out"
-              iconStart="sign-out"
-              textEnabled
-              onClick={handleLogout}
-            />
           )}
-          {isAuth && (<Link to="/app">
-                                <CalciteMenuItem
-                                  text="Application"
-                                  iconStart="apps"
-                                  textEnabled
-                                />
-                              </Link>)}
-          {(isAuth && user.role.toLowerCase() === AppRoles.admin.toLowerCase()) && (
-                          <Link to="/admin" >
-                            <CalciteMenuItem
-                              text="Admin"
-                              iconStart="drone-quadcopter"
-                              textEnabled
-                            />
-                          </Link>)
-            }
-      
-          <Link to="/about" onClick={() => handleMenuItemClick('about')}>
-            <CalciteMenuItem
-              text="About"
-              iconStart="information"
-              textEnabled
-              active={selectedMenuItem === 'about'?true:undefined}
+
+          {/* Login/Logout Menu Item */}
+          {user ? (
+           
+              <CalciteMenuItem 
+                text="Logout" 
+                icon="sign-out"
+                onClick={handleLogout}
+              />
+          
+          ) : (
+            <Link to={`/${MENU_ITEMS.login}`}>
+              <CalciteMenuItem 
+                text="Login" 
+                icon="sign-in"
+                active={menuState[MENU_ITEMS.login]}
+                onClick={() => handleMenuClick(MENU_ITEMS.login)}
+              />
+            </Link>
+          )}
+          {/* About Menu Item */}
+          <Link to={`/${MENU_ITEMS.about}`}>
+            <CalciteMenuItem 
+              text="About" 
+              icon="info"
+              active={menuState[MENU_ITEMS.about]}
+              onClick={() => handleMenuClick(MENU_ITEMS.about)}
             />
-           </Link>
-           <Link to="/testauth" onClick={() => handleMenuItemClick('test')}>
-            <CalciteMenuItem
-              text="Test"
-              iconStart="information"
-              textEnabled
-              active={selectedMenuItem === 'test'?true:undefined}
+          </Link>
+           {/* Public Menu Items */}
+           <Link to={`/${MENU_ITEMS.test}`}>
+            <CalciteMenuItem 
+              text="Test" 
+              icon="test"
+              active={menuState[MENU_ITEMS.test]}
+              onClick={() => handleMenuClick(MENU_ITEMS.test)}
             />
-           </Link>
-         
-        </CalciteMenu>
-      </CalciteNavigation>
-      
-      <div className="public-content">
-        <Outlet />
-      </div>
+          </Link>
+          </CalciteMenu>
+        </CalciteNavigation>
+
+        
+
+        <CalcitePanel>
+          <Outlet />
+        </CalcitePanel>
 
       <ConfirmLogout 
-        isOpen={showLogoutModal}
-        onClose={() => setShowLogoutModal(false)}
+        isOpen={isLogoutOpen}
+        onClose={() => setIsLogoutOpen(false)}
         onConfirm={confirmLogout}
       />
+      
     </CalciteShell>
   );
 };
+
+export default PublicLayout;

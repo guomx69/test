@@ -1,5 +1,5 @@
 // Example usage component
-import {useToastError, useToastSuccess } from "../libs/utils/ToastErrorBoundary";
+import {useToastError, useToastSuccess } from "./ToastErrorBoundary";
 import { toast, ToastContainer } from 'react-toastify';
 const ExampleComponent = () => {
     const handleError = useToastError();

@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useReducer } from "react";
 
 import "@esri/calcite-components/dist/components/calcite-navigation";
 
@@ -30,10 +30,42 @@ import CommonTasksBar from '../../libs/components/commonTasksBar';
 import { AppResource } from '../config/config';
 import './adminLayout.css';
 
+// Menu items constant - using original menu items
+const MENU_ITEMS = {
+  user: 'user',
+  data: 'data',
+  setting: 'setting',
+  help: 'help'
+};
+
+// Action types
+const SET_SELECTED_MENU = 'SET_SELECTED_MENU';
+
+// Initial state
+const initialState = {
+  [MENU_ITEMS.user]: undefined,
+  [MENU_ITEMS.data]: undefined,
+  [MENU_ITEMS.setting]: undefined,
+  [MENU_ITEMS.help]: undefined
+};
+
+// Reducer function
+const menuReducer = (state, action) => {
+  switch (action.type) {
+    case SET_SELECTED_MENU:
+      return {
+        ...initialState,
+        [action.payload]: true
+      };
+    default:
+      return state;
+  }
+};
+
 export const AdminLayout = () => {
   const navigate = useNavigate();
   const [showLogoutModal, setShowLogoutModal] = useState(false);
-  const [selectedMenuItem, setSelectedMenuItem] = useState('users');
+  const [menuState, dispatch] = useReducer(menuReducer, initialState);
 
   const handleLogout = () => {
     setShowLogoutModal(true);
@@ -44,8 +76,8 @@ export const AdminLayout = () => {
     navigate('/logout');
   };
 
-  const handleMenuItemClick = (item) => {
-    setSelectedMenuItem(item);
+  const handleMenuClick = (menuItem) => {
+    dispatch({ type: SET_SELECTED_MENU, payload: menuItem });
   };
 
   const handleDropdownAction = (action) => {
@@ -70,8 +102,8 @@ export const AdminLayout = () => {
               text="User"
               iconStart="user"
               textEnabled
-              active={selectedMenuItem === 'users' ? true : undefined}
-              onClick={() => handleMenuItemClick('users')}
+              active={menuState[MENU_ITEMS.user]}
+              onClick={() => handleMenuClick(MENU_ITEMS.user)}
             />
             <CalciteDropdownGroup>
               <CalciteDropdownItem
@@ -101,8 +133,8 @@ export const AdminLayout = () => {
               text="Data"
               iconStart="data-check"
               textEnabled
-              active={selectedMenuItem === 'data' ? true : undefined}
-              onClick={() => handleMenuItemClick('data')}
+              active={menuState[MENU_ITEMS.data]}
+              onClick={() => handleMenuClick(MENU_ITEMS.data)}
             />
             <CalciteDropdownGroup>
               <CalciteDropdownItem
@@ -132,8 +164,8 @@ export const AdminLayout = () => {
               text="Settings"
               iconStart="gear"
               textEnabled
-              active={selectedMenuItem === 'settings' ? true : undefined}
-              onClick={() => handleMenuItemClick('settings')}
+              active={menuState[MENU_ITEMS.setting]}
+              onClick={() => handleMenuClick(MENU_ITEMS.setting)}
             />
             <CalciteDropdownGroup>
               <CalciteDropdownItem
@@ -163,8 +195,8 @@ export const AdminLayout = () => {
               text="Help"
               iconStart="lightbulb"
               textEnabled
-              active={selectedMenuItem === 'help' ? true : undefined}
-              onClick={() => handleMenuItemClick('help')}
+              active={menuState[MENU_ITEMS.help]}
+              onClick={() => handleMenuClick(MENU_ITEMS.help)}
             />
             <CalciteDropdownGroup>
               <CalciteDropdownItem
@@ -193,7 +225,7 @@ export const AdminLayout = () => {
         <CommonTasksBar />
       </CalciteNavigation>
       
-      <AdminTaskBars selectedMenuItem={selectedMenuItem} />
+      <AdminTaskBars selectedMenuItem={Object.keys(menuState).find(key => menuState[key] === true)} />
       
       <div className="container mx-auto p-4 mt-16">
         <Outlet />

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { LOCAL_STORAGE_KEYS, OAUTH_CONFIG } from '../../cores/config/config';
 
-const defaultReturnUrl = window.location.href;
 export const useGmailAuth = (returnUrl="") => {
   const [gmailUser, setGmailUser] = useState(null);
   const [gmailError, setGmailError] = useState(null);

@@ -27,22 +27,22 @@ import Settings         from '../../apps/admin/pages/Settings.jsx';
 
 import { AppRoles } from '../config/config';
 
-import { PublicLayout } from '../layouts/PublicLayout';
+import  PublicLayout from '../layouts/PublicLayout';
 import { AppLayout }    from '../layouts/AppLayout';
 import AdminLayout      from '../layouts/AdminLayout';
 
 import { ProtectedRouteAdmin } from '../security/ProtechedRouteAdmin';
 import { ProtectedRoute }      from '../security/ProtectedRoute';
 
+
+
+import { AuthMwArcgis } from '../../libs/hooks/AuthMwArcgis.jsx';//middleware for arcgis redirect url
+import { AuthMwGmail } from '../../libs/hooks/AuthMwGmail.jsx';//middleware for gmail redirect
 import { GmailLogin } from '../../test/demos/gmailLogin';
-//import LoginTest   from '../../test/LoginTest';
-import WebMapId from '../../test/demos/WebMapId.jsx';
-//import TestAuthGmailToken from '../../test/TestAuthGmailToken';
-//import TestAuthGmailAccount from '../../test/TestAuthGmailAccount';
+import TestAuthArcGISToken from '../../test/demos/TestAuthArcGISToken.jsx';
 import TestAuth from '../../test/demos/TestAuth.jsx';
-import { AuthMwArcgis } from '../../libs/hooks/AuthMwArcgis.jsx';
-import { AuthMwGmail } from '../../libs/hooks/AuthMwGmail.jsx';
-import TestAuthArcGISToken from '../../test/demos/gmailLogin/TestAuthArcGISToken.jsx';
+
+
 
 const AppRoutes = () => {
   return (
@@ -55,12 +55,13 @@ const AppRoutes = () => {
                 <Route path="forbidden" element={<Forbidden />} /> 
                 <Route path="reservations" element={<Reservations />} /> 
              
+                
                 <Route path="gmail" element={<GmailLogin />} /> 
-                <Route path="arcgis" element={<TestAuthArcGISToken />} /> 
-                <Route path="webmap" element={<WebMapId  />} /> 
                 <Route path="authgmail" element={<AuthMwGmail />} />
+                <Route path="arcgis" element={<TestAuthArcGISToken />} /> 
                 <Route path="autharcgis" element={<AuthMwArcgis />} />
-                <Route path="testauth" element={<TestAuth />} />
+                <Route path="test" element={<TestAuth />} />
+               
           </Route>
           <Route path="/app/*" element={<ProtectedRoute><AppLayout /></ProtectedRoute>} >
                     <Route index element={<AppHome />} />
