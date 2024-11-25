@@ -1,11 +1,11 @@
-.gmail-auth-container {
+.test-auth-container {
   padding: 20px;
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
 }
 
-.gmail-login-button {
+.test-login-button {
   background-color: #4285f4;
   color: white;
   padding: 10px 20px;
@@ -16,41 +16,41 @@
   transition: background-color 0.3s;
 }
 
-.gmail-login-button:hover {
+.test-login-button:hover {
   background-color: #357abd;
 }
 
-.user-profile {
+.test-user-info {
   background-color: #f8f9fa;
   padding: 20px;
   border-radius: 8px;
   margin-top: 20px;
 }
 
-.profile-header {
+.test-profile-header {
   display: flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 20px;
 }
 
-.profile-image {
+.test-profile-image {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.profile-info {
+.test-profile-info {
   text-align: left;
 }
 
-.profile-info h3 {
+.test-profile-info h3 {
   margin: 0;
   color: #333;
 }
 
-.profile-info p {
+.test-profile-info p {
   margin: 5px 0 0;
   color: #666;
 }

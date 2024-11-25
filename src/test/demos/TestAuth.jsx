@@ -1,7 +1,7 @@
 import React from 'react';
 import { useArcGISAuth } from '../../libs/hooks/useArcGISAuth';
 import { useGmailAuth } from '../../libs/hooks/useGmailAuth';
-
+import './gmailLogin/styles/TestGmailLogin.css';
 
 
 const TestAuth = () => {
@@ -11,8 +11,8 @@ const TestAuth = () => {
   // If we're on the callback page, show the token data
 
   return (
-    <div className="auth-container">
-      <h2>ArcGIS Authentication</h2>
+    <div className="test-auth-container">
+      <h2>Test Authentication</h2>
       
       {arcgisError && (
         <div className="error-message">
@@ -25,7 +25,7 @@ const TestAuth = () => {
         </div>
       )}    
       {arcgisUser ? (
-            <div className="auth-container">
+            <div className="test-auth-container">
               <h2>ArcGIS Authentication Callback</h2>
               <div className="callback-data">
                 <h3>Callback Data:</h3>
@@ -35,11 +35,12 @@ const TestAuth = () => {
                 </button>
               </div>
             </div>
-        ):<button onClick={handleArcGISLogin} className="login-button">
+        ):<button onClick={handleArcGISLogin} className="test-login-button">
                Sign in with ArcGIS Online      </button>
       }
+      <br /><br />
       {gmailUser? (
-                <div className="user-info">
+                <div className="test-user-info">
                 <h3>Gmail User Information</h3>
                 <p>Email: {gmailUser.email}</p>
                 <p>Name: {gmailUser.name}</p>
@@ -48,7 +49,7 @@ const TestAuth = () => {
                   Logout
                 </button>
               </div>
-              ):  <button onClick={handleGoogleLogin} className="login-button">
+              ):  <button onClick={handleGoogleLogin} className="test-login-button">
                   Sign in with Gmail
                  </button>
        }
