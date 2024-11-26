@@ -1,16 +1,16 @@
 .app-navigation calcite-dropdown {
   --calcite-dropdown-width: auto;
-  min-width: 180px; 
+  min-width: 160px; 
 }
 
 .app-navigation calcite-menu-item[slot="trigger"] {
   width: auto;
-  min-width: 175px;
+  min-width: 155px;
 }
 
 .app-navigation calcite-dropdown-item {
   width: auto;
-  min-width: 170px;
+  min-width: 150px;
 }
 
 .app-navigation calcite-menu {
@@ -39,4 +39,11 @@
   outline: none !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+/* Panel styles */
+.left-panel .left-panel-content{
+  background: rgb(173, 219, 6) !important;
+  color: rgb(255, 0, 0);
+
 }

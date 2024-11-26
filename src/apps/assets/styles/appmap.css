@@ -1,4 +1,4 @@
-@import "../assets/styles/esrimap.css";
+@import "./esrimap.css";
 /* @import "../styles/mapcomp.css"; */
 
 .map-container {
@@ -9,10 +9,4 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-}
-
-arcgis-map {
-  width: 100%;
-  height: 100%;
-  position: absolute;
 }

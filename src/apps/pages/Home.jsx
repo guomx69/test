@@ -2,19 +2,6 @@ import React, { useEffect } from 'react';
 
 // Configure ArcGIS API
 
-
-import "@esri/calcite-components/dist/components/calcite-shell";
-import "@esri/calcite-components/dist/components/calcite-shell-panel";
-import "@esri/calcite-components/dist/components/calcite-action";
-import "@esri/calcite-components/dist/components/calcite-action-bar";
-import "@esri/calcite-components/dist/components/calcite-panel";
-import {
-  CalciteShell,
-  CalciteActionBar,
-  CalciteAction,
-  CalcitePanel
-} from "@esri/calcite-components-react";
-
 import "@arcgis/map-components/dist/components/arcgis-map";
 import "@arcgis/map-components/dist/components/arcgis-basemap-gallery";
 import "@arcgis/map-components/dist/components/arcgis-layer-list";
@@ -39,7 +26,7 @@ import  {VectorServices}  from '../../cores/config/serviceVectorList';
 import { addMapServices, addFeatureService, addVectorService } from '../../libs/utils/mapServices';
 
 //import '@arcgis/core/assets/esri/themes/light/main.css' //local version
-import './home.css'; //disable cloud version  
+
 
 const Home = () => {
   const onArcGISViewClick = (event) => {

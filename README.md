@@ -9,3 +9,7 @@ When building for production, Vite will load environment variables in the follow
 1. .env.local: Local overrides (not committed to version control).
 2. .env.production: Production-specific variables.
 3. .env: Default variables.
+
+xxxxxxxx
+
+yyyyyyyyyyyyyyyyyy

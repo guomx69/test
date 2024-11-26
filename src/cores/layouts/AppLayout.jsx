@@ -11,6 +11,8 @@ import "@esri/calcite-components/dist/components/calcite-dropdown-group";
 import "@esri/calcite-components/dist/components/calcite-dropdown-item";
 import "@esri/calcite-components/dist/components/calcite-menu";
 import "@esri/calcite-components/dist/components/calcite-panel";
+import "@esri/calcite-components/dist/components/calcite-button";
+import "@esri/calcite-components/dist/components/calcite-action";
 import { 
   CalciteShell, 
   CalciteShellPanel, 
@@ -21,13 +23,17 @@ import {
   CalciteDropdown,
   CalciteDropdownGroup,
   CalciteDropdownItem,
-  CalciteMenu
+  CalciteMenu,
+  CalciteButton,
+  CalciteAction
 } from '@esri/calcite-components-react';
 
 import AppTaskBars from "../../apps/components/AppTaskBars";
 import ConfirmLogout from '../../libs/components/confirmLogout';
 import CommonTasksBar from '../../libs/components/commonTasksBar';
 import { AppResource } from '../config/config';
+
+//import "../../apps/assets/styles/appmap.css";
 import './appLayout.css';
 
 // Menu items constant
@@ -66,6 +72,11 @@ export const AppLayout = () => {
   const [menuState, dispatch] = useReducer(menuReducer, initialState);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const navigate = useNavigate();
+  const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
+
+  const togglePanel = () => {
+    setIsPanelCollapsed(!isPanelCollapsed);
+  };
 
   const handleMenuItemClick = (item) => {
     dispatch({ type: SET_SELECTED_MENU, payload: item });
@@ -232,38 +243,37 @@ export const AppLayout = () => {
       </CalciteNavigation>
         
       
-     
-
 
       {/* Left Panel - Calcite structure with React content */}
-      <CalciteShellPanel 
-        slot="panel-start"
+    
+       {/* Collapsible Panel */}
+       <CalciteShellPanel 
+        slot="panel-start" 
         position="start"
-        className="bg-gray-50"
+        collapsed={isPanelCollapsed}
+        resizable
       >
+        <div className="panel-handle" onClick={togglePanel}>
+          <CalciteAction
+            icon={isPanelCollapsed ? "chevron-right" : "chevron-left"}
+            text={isPanelCollapsed ? "Expand" : "Collapse"}
+            scale="s"
+          />
+        </div>
         <CalcitePanel>
-          <div className="p-4">
-            {/* Custom React Navigation */}
-            <nav className="space-y-2">
-              {['TOC', 'Layers', 'Labels'].map(item => (
-                <button
-                  key={item}
-                  className="w-full text-left px-4 py-2 rounded hover:bg-blue-50 
-                          transition-colors duration-200"
-                >
-                  {item}
-                </button>
-              ))}
-            </nav>
+          <div>
+            <h2>Panel Content</h2>
+            <p>This content is inside the collapsible panel.</p>
           </div>
         </CalcitePanel>
       </CalciteShellPanel>
+    
+   
         {/* Right Panel - Calcite structure with React content */}
       <CalciteShellPanel 
         slot="panel-end"
         position="end"
-      
-        className="bg-gray-50"
+        className="bg-gray-50 right-panel"
       >
         <CalcitePanel>
           <div className="p-4">

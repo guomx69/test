@@ -2,7 +2,6 @@ import React, { useReducer,useEffect } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 
 import "@esri/calcite-components/dist/components/calcite-shell";
-
 import "@esri/calcite-components/dist/components/calcite-navigation";
 import "@esri/calcite-components/dist/components/calcite-navigation-logo";
 import "@esri/calcite-components/dist/components/calcite-menu-item";
@@ -22,6 +21,8 @@ import {
 import ConfirmLogout from '../../libs/components/confirmLogout/ConfirmLogout';
 import { useAuth } from '../contexts/AuthContext';
 import { AppResource, AppRoles } from '../../cores/config/config';
+
+import "../../apps/assets/styles/appmap.css";
 
 // Action types
 const SET_SELECTED_MENU = 'SET_SELECTED_MENU';
@@ -166,11 +167,9 @@ const PublicLayout = () => {
               active={menuState[MENU_ITEMS.test]}
               onClick={() => handleMenuClick(MENU_ITEMS.test)}
             />
-          </Link>
+           </Link>
           </CalciteMenu>
         </CalciteNavigation>
-
-        
 
         <CalcitePanel>
           <Outlet />

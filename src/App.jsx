@@ -19,10 +19,7 @@ const App = () => {
   return (
     //<EsriAuthProvider>
       <AuthProvider>
-        
-         
           <AppRoutes />
-      
       </AuthProvider>
     //</EsriAuthProvider>
   );
