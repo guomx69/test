@@ -1,0 +1,67 @@
+.button-fieldset {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px;
+  border: none;
+}
+
+.button-fieldset legend {
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--calcite-ui-text-1);
+  padding: 0 4px;
+}
+
+.details-button {
+  min-width: 140px;
+  justify-content: center;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  --calcite-ui-brand: #0057B8;
+  --calcite-ui-brand-hover: #004494;
+  --calcite-ui-brand-press: #003771;
+  --calcite-ui-text-1: #2D2D2D;
+  --calcite-ui-foreground-1: #FFFFFF;
+  background-color: var(--calcite-ui-foreground-1);
+  color: var(--calcite-ui-brand);
+  border: 2px solid var(--calcite-ui-brand);
+}
+
+.details-button:hover {
+  background-color: var(--calcite-ui-brand-hover);
+  color: var(--calcite-ui-foreground-1);
+}
+
+.details-button:active {
+  background-color: var(--calcite-ui-brand-press);
+  color: var(--calcite-ui-foreground-1);
+}
+
+.details-button:focus {
+  outline: 3px solid #FFB900;
+  outline-offset: 2px;
+}
+
+calcite-action-bar {
+  --calcite-action-bar-expanded-max-width: none;
+  background-color: var(--calcite-ui-foreground-1);
+}
+
+calcite-action-group {
+  border-right: 1px solid var(--calcite-ui-border-3);
+  padding: 0 8px;
+}
+
+calcite-action-group:last-child {
+  border-right: none;
+}
+
+calcite-action-group::part(group-label) {
+  color: var(--calcite-ui-text-1);
+  font-weight: 600;
+  font-size: 14px;
+}
+

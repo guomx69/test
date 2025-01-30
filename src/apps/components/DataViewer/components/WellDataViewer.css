@@ -1,0 +1,46 @@
+calcite-shell calcite-shell-panel {
+  margin-bottom: 0 !important; 
+  padding-bottom: 0 !important;
+  height: auto !important;
+  --calcite-shell-panel-max-height: auto !important;
+  --calcite-shell-panel-min-height: min-content !important;
+}
+
+
+
+/* Make first three panels take minimal height */
+/* calcite-shell calcite-shell-panel:nth-child(-n+3) {
+  flex: 0 0 auto !important;
+} */
+
+/* Make the last panel take remaining space */
+calcite-shell calcite-shell-panel:last-child {
+  flex: 1 1 auto !important;
+  height: 100% !important;
+  --calcite-shell-panel-min-height: 100% !important;
+}
+
+/* Common styles shared between panels */
+/* calcite-action-bar {
+  --calcite-action-bar-items-space: 3rem;
+} */
+
+.label-select-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label-select-group calcite-label {
+  margin: 0;
+  white-space: nowrap;
+}
+.label-select-group calcite-select {
+  min-width: 150px;
+  margin-top: 0;
+  height: 32px; /* Match button height */
+}
+.action-bar-btn {
+  margin-left: 2rem;
+}
+

@@ -1,0 +1,37 @@
+.shell-panel-handle {
+  position: absolute;
+  width: 28px;
+  height: 24px;
+  background: rgb(216, 224, 216);
+  border: 1px solid #eaeaea;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.1);
+  z-index: 3000;
+  transition: left 0.3s ease;
+  --test-width: 240px;
+}
+
+ .shell-panel-left-handle {
+  top: 0;
+  left: 0px;
+  /* left:calc(var(--calcite-shell-panel-width) + 10px)!important; */
+}
+.shell-panel-left-handle:hover {
+  background: #746f6f;
+}
+
+.shell-panel-right-handle {
+  top: 0px;
+  right: 0px;
+  /* flex-direction: row-reverse; */
+}
+
+.shell-panel-right-handle:hover {
+  background: #746f6f;
+}
+

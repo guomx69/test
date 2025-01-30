@@ -1,0 +1,81 @@
+.common-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.list-container {
+  flex: 1 1 auto;
+  overflow: auto;
+  min-height: calc(4 * 48px + 16px); /* 4 rows plus some padding */
+}
+
+calcite-list {
+  width: 100%;
+}
+
+calcite-list-item {
+  --calcite-list-item-spacing-indent: 0;
+  cursor: pointer;
+  height: 48px; /* Fixed height for each row */
+  min-height: 48px; /* Ensure minimum height */
+}
+
+/* Highlight selected item */
+calcite-list-item[selected] {
+  --calcite-ui-border-3: var(--calcite-ui-brand);
+  background-color: var(--calcite-ui-brand-hover);
+  color: var(--calcite-ui-text-inverse);
+}
+
+/* Hover effect for non-selected items */
+calcite-list-item:not([selected]):hover {
+  background-color: var(--calcite-ui-foreground-2);
+}
+
+.list-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+.list-item-title {
+  font-weight: 500;
+}
+
+.list-item-description {
+  font-size: 14px;
+  color: var(--calcite-ui-text-2);
+}
+
+/* Ensure description text is visible when item is selected */
+calcite-list-item[selected] .list-item-description {
+  color: var(--calcite-ui-text-inverse);
+}
+
+.common-list-container {
+  flex: 1;
+  overflow: auto;
+  min-height: calc(4 * 48px + 16px); /* 4 rows plus padding */
+}
+
+.highlighted-row {
+  background-color: red !important;/*var(--calcite-ui-brand-hover);*/
+  color: var(--calcite-ui-text-inverse);
+}
+
+.unhighlighted-row:hover {
+  background-color: var(--calcite-ui-foreground-2);
+  cursor: pointer;
+}
+
+.checkbox-cell {
+  text-align: center;
+  width: 40px;
+}
+
+calcite-table {
+  flex: 1;
+}

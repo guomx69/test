@@ -1,0 +1,14 @@
+
+calcite-table-row[slot="table-header"] calcite-table-cell {
+    font-weight: 600;
+    color: #2b2b2b;
+    border-bottom: 2px solid #b4c3d1;
+}
+
+.row-even {
+    background-color: #ffffff;
+}
+
+.row-odd {
+    background-color: #052036;
+}

@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { SecurityUtils, customToastStyles } from './apiSecurity';
-import { OAUTH_CONFIG, LOCAL_STORAGE_KEYS } from '../../cores/config/config';
+import { OAUTH_CONFIG, LOCAL_STORAGE_KEYS } from '../../apps/config/config';
 
 /**
  * Axios instance with default configuration
  * @type {import('axios').AxiosInstance}
  */
-const apiUser = axios.create({
+const ExpressServerApis = axios.create({
   baseURL: import.meta.env.VITE_USERAPI_URL,
   timeout: 5000,
   //withCredentials: true,
@@ -19,7 +19,7 @@ const apiUser = axios.create({
       // 'X-XSS-Protection': '1; mode=block',//response header
     }
  });
-apiUser.interceptors.request.use(
+ExpressServerApis.interceptors.request.use(
   (config) => {
     return config;
   },
@@ -31,7 +31,7 @@ apiUser.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-apiUser.interceptors.response.use(
+ExpressServerApis.interceptors.response.use(
   (response) => response,
   (error) => {
     toastHandler(error);
@@ -128,4 +128,4 @@ const toastHandler = (error) => {
   });
 }
 
-export { apiUser, googleTokenApi, googleUserApi };
+export { ExpressServerApis, googleTokenApi, googleUserApi };

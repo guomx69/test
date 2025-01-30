@@ -10,7 +10,7 @@ export const ProtectedRoute = ({ children}) => {
 
 
 
-  console.log("user",user,"from ProtectedRoute");
+ // console.log("ProtectedRouteb is called, current user::",user);
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }

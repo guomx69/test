@@ -1,0 +1,1 @@
+export const fetchData = jest.fn(() => Promise.resolve({ data: 'mocked data' })); 

@@ -1,20 +1,19 @@
 export default {
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/src/$1',
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-    '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/__mocks__/fileMock.js',
-    '@esri/calcite-components/dist/components/(.*)$': '<rootDir>/src/libs/components/commonTasksBar/__mocks__/calciteMocks.js'
-  },
   transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest'
+    '^.+\\.jsx?$': 'babel-jest',
   },
-  testMatch: [
-    '<rootDir>/src/**/__tests__/**/*.{js,jsx}',
-    '<rootDir>/src/**/*.{spec,test}.{js,jsx}'
+  moduleFileExtensions: ['js', 'jsx', 'json', 'node'],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '/dist/'
   ],
+  setupFilesAfterEnv: ['<rootDir>/src/tests/setupTests.js'],
+  testMatch: ['**/tests/**/*.test.js', '**/tests/**/*.test.jsx'],
   transformIgnorePatterns: [
-    '/node_modules/(?!(@arcgis|@esri|@calcite)/).+\\.js$'
-  ]
-}; 
+    '/node_modules/(?!@esri/calcite-components|@stencil/core)',
+  ],
+  moduleNameMapper: {
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+  },
+};

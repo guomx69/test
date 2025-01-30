@@ -14,7 +14,7 @@ import {
 import './confirmLogout.css';
 import { DIALOG_TEXTS } from './constants';
 
-const ConfirmLogout = ({ isOpen, onClose, onConfirm }) => {
+const CompConfirmLogout = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;
   
   return (
@@ -58,4 +58,4 @@ const ConfirmLogout = ({ isOpen, onClose, onConfirm }) => {
   );
 };
 
-export default ConfirmLogout; 
+export default CompConfirmLogout; 

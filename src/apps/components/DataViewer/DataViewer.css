@@ -1,0 +1,33 @@
+
+.data-viewer-root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background-color: var(--calcite-ui-foreground-1);
+  }
+  
+  .data-viewer-root calcite-tabs {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .data-viewer-root calcite-tab {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+  }
+  
+  .data-viewer-root calcite-tab-nav {
+    border-bottom: 2px solid var(--calcite-ui-border-3);
+  }
+  
+  /* Ensure WellDataViewer's CalciteShell doesn't override tab layout */
+  .data-viewer-root calcite-tab calcite-shell {
+    position: relative;
+    height: calc(100% - 29px); /* Account for tab nav height */
+  }

@@ -1,0 +1,40 @@
+.niogems-detailv1 .details-row {
+    display: grid;
+    grid-template-columns: repeat(var(--cols-count), 1fr 1.5fr);
+    gap: 8px;
+    padding: 4px;
+    width: 95%;
+  }
+  
+  .niogems-detailv1 calcite-table-cell.label {
+    width: 80%;
+    min-width: 80px;
+    max-width: 160px;
+    font-weight: 600;
+    color: var(--calcite-ui-text-2);
+    padding: 4px 8px;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    min-height: 16px;   
+    max-height: 20px;
+  }
+  
+  .niogems-detailv1 calcite-table-cell.value {
+  
+    background-color: var(--calcite-ui-foreground-1);
+    border: 1px solid var(--calcite-ui-border-input);
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: var(--calcite-ui-text-1);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    min-height: 16px;
+    max-height: 20px;
+    width: 75%;
+    max-width: 200px;
+  }

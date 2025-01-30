@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { googleTokenApi, googleUserApi } from '../utils/apiCalls';
-import { LOCAL_STORAGE_KEYS, OAUTH_CONFIG } from '../../cores/config/config';
+import { LOCAL_STORAGE_KEYS, OAUTH_CONFIG } from '../../apps/config/config';
 import { returnHome } from './authUtl';
 export const AuthMwGmail = () => {
 
@@ -25,6 +25,7 @@ export const AuthMwGmail = () => {
       });
       // Get token using googleTokenApi
       await googleTokenApi.post('/token', formData);
+      
       // Get user info using googleUserApi
       await googleUserApi.get('/userinfo');
 

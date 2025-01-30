@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { LOCAL_STORAGE_KEYS, OAUTH_CONFIG } from '../../cores/config/config';
+import { LOCAL_STORAGE_KEYS, OAUTH_CONFIG } from '../../apps/config/config';
 
 export const useGmailAuth = (returnUrl="") => {
   const [gmailUser, setGmailUser] = useState(null);

@@ -1,0 +1,45 @@
+
+/* Container styles */
+.production-detail-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+/* Right Panel - Production Details section */
+/* Right Panel - Production Details section */
+.production-detail-container .right-panel {
+    flex: 1;  /* Take remaining space */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow: auto; /* Allow scrolling if content is too long */
+}
+.production-detail-container .left-panel {
+    width: 300px;  /* Fixed width for the left panel */
+    flex-shrink: 0; /* Prevent shrinking */
+    border-right: 1px solid var(--calcite-ui-border-3);
+    padding-right: 16px;
+}
+.rates-section{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+.rates-section .left-panel{
+    width: 300px;  /* Fixed width for the left panel */
+    flex-shrink: 0; /* Prevent shrinking */
+    border-right: 1px solid var(--calcite-ui-border-3);
+    padding-right: 16px;
+}
+.rates-section .right-panel{
+    width: 300px;  /* Fixed width for the left panel */
+    flex-shrink: 0; /* Prevent shrinking */
+    border-right: 1px solid var(--calcite-ui-border-3);
+    padding-right: 16px;
+}
+.production-detail-container .section-title {
+    margin-top: 26px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--calcite-ui-text-2);
+}

@@ -1,27 +1,28 @@
 // src/App.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import AppRoutes from './cores/routes/AppRoutes';
-import { AppResource } from './cores/config/config';
-//import { EsriAuthProvider } from './cores/contexts/EsriAuthContext';
+import AppRoutes from './AppRoutes';
+import { AppResource } from './apps/config/config';
 import { AuthProvider } from './cores/contexts/AuthContext';
-
-
-import './apps/assets/styles/index.css';
+import { OAuth2PKCEProvider } from './testDemo/demos/testbase/OAuth2PKCEContext';
 import { setAssetPath } from "@esri/calcite-components/dist/components";// CDN hosted assets
 setAssetPath(AppResource.calciteCDN); 
+
 //import "@esri/calcite-components/dist/calcite/calcite.css";
 //import './apps/assets/styles/calcite.css'; not working
 //setAssetPath(AppResource.mapComponentsCDN); not working
 
 
 const App = () => {
+ 
   return (
-    //<EsriAuthProvider>
+     
       <AuthProvider>
-          <AppRoutes />
+        <OAuth2PKCEProvider>
+        <AppRoutes />
+        </OAuth2PKCEProvider> 
       </AuthProvider>
-    //</EsriAuthProvider>
+     
   );
 };
 export default App;

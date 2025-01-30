@@ -10,6 +10,7 @@ When building for production, Vite will load environment variables in the follow
 2. .env.production: Production-specific variables.
 3. .env: Default variables.
 
-xxxxxxxx
 
-yyyyyyyyyyyyyyyyyy
+=================
+1)Completion for each type has a different fields
+2)GeneralInfo for WellView and Production has a different fields altough they have the similar recordlist

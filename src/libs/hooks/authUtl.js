@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_KEYS } from '../../cores/config/config';
+import { LOCAL_STORAGE_KEYS } from '../../apps/config/config';
 
 export const returnHome = (returnUrl) => {
 

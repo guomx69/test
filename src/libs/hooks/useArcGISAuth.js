@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { UserSession } from '@esri/arcgis-rest-auth';
-import { LOCAL_STORAGE_KEYS, OAUTH_CONFIG } from '../../cores/config/config';
+import { LOCAL_STORAGE_KEYS, OAUTH_CONFIG } from '../../apps/config/config';
 export const useArcGISAuth = (returnUrl='') => {
   const [arcgisUser, setArcGisUser] = useState(null);
   const [arcgisError, setArcGisError] = useState(null);

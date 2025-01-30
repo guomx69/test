@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 import "@esri/calcite-components/dist/components/calcite-button";
 
@@ -7,32 +8,16 @@ import "@esri/calcite-components/dist/components/calcite-slider";
 
 import "@esri/calcite-components/dist/components/calcite-list-item";
 import "@esri/calcite-components/dist/components/calcite-list";
-import { CalciteButton,CalciteList,CalciteListItem, CalciteIcon, CalciteSlider } from "@esri/calcite-components-react";
+import { CalciteButton,CalciteList,CalciteListItem } from "@esri/calcite-components-react";
 
-import { apiUser } from '../../../libs/utils/apiCalls';
+import { ExpressServerApis } from '../../../libs/utils/apiCalls';
 function UserManagement() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['users'],
+    queryFn: () => ExpressServerApis.get('/api/v1/users'),
+  });
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
-  const fetchUsers = async () => {
-    try {
-      // Replace this with your actual API call
-      const response = await apiUser.get('/users');
-      if (response && response.data && response.status === 200) {
-        setUsers(response.data);
-      } else {
-         throw new Error(`Unexpected status code: ${response.status}`);
-        }
-    } catch (err) {
-      setError(err.message);
-    }
-    setLoading(false);
-  };
 
   const handleDeleteUser = (userId) => {
     // Implement delete functionality here
@@ -40,14 +25,16 @@ function UserManagement() {
     setUsers(users.filter(user => user.id !== userId));
   };
 
-  if (loading) return <div>Loading users...</div>;
+  if (isLoading) return <div>Loading users...</div>;
   if (error) return <div>Error: {error}</div>;
+
+  console.log(data);
 
   return (
     <div className="user-list">
       <h1>User List</h1>
       <CalciteList>
-        {users.map(user => (
+          {data&&data.data.map(user => (
           <CalciteListItem key={user.id} label={user.name} description={user.email}>
             <CalciteButton
               slot="actions-end"

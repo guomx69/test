@@ -1,0 +1,7 @@
+/* Keep styles for action-content if needed for layout */
+calcite-action-group[label="Navigation"] { 
+    min-width: 40rem;
+ }
+ calcite-pagination {
+  min-width: 40rem;
+}

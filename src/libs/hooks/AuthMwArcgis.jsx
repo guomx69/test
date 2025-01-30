@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { returnHome } from "./authUtl";
-import { LOCAL_STORAGE_KEYS } from '../../cores/config/config';
+import { LOCAL_STORAGE_KEYS } from '../../apps/config/config';
 
 export const AuthMwArcgis = () => {
   useEffect(() => {

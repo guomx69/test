@@ -5,17 +5,10 @@
 1)Test Refresh Token in ArcGISToken and GmailAuth.
 2)Unit Test
 3)ask API team to add the CORS header. 
+4)OnReset Event in ErrorBoundary never called.???
 
 
 ====================Authorization code flow with PKCE=======================
 https://auth0.com/docs/get-started/authentication-and-authorization-flow/authorization-code-flow-with-pkce
 import { usePKCE } from 'react-oauth2-pkce';
 
-
-
-
-
-
-
-
-8888888888888888888
